@@ -12,7 +12,7 @@ var connection;
 
 
 function handleDisconnect() {
-    connection = mysql.createConnection(return_info);
+    connection = mysql.createConnection(db_config );
     connection.connect(function(err){
         if (err) {
             console.log('error when connecting to db : ', err);

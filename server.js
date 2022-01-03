@@ -1,6 +1,6 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-const { save_user_information } = require('./modles/server_db')
+const { save_user_information ,get_total_amount } = require('./models/server_db')
 const app = express();
 
 app.use(bodyParser.json());
@@ -22,6 +22,13 @@ app.post('/', async (req,res) => {
     res.send(result);
 
 });
+
+app.get('/gettotalamount', async (req,res) => {
+result = await get_total_amount();
+res.send(result);
+
+});
+
 app.listen(3000,()=>{
     console.log('server listening on port 3000');
 });
